@@ -1,0 +1,194 @@
+<html>
+  <body onload="javascript:initFirebase();">
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+
+    <script type="text/javascript">
+      const firebaseConfig = {
+        apiKey: "AIzaSyAIwBwBG6jFDAjoMSwr2kHyomyRLxXBaaQ",
+        authDomain: "golftemp-ce06c.firebaseapp.com",
+        databaseURL: "https://golftemp-ce06c.firebaseio.com",
+        projectId: "golftemp-ce06c",
+        storageBucket: "golftemp-ce06c.appspot.com",
+        messagingSenderId: "8808231331",
+        appId: "1:8808231331:web:7b5351ba70a8a8ec282a16",
+      };
+
+      const getCustomers = () => {
+        return {
+          "1": {
+            Address: "서울시",
+            ChatRoomIDList: {
+              ChatRoomIDList: 0,
+            },
+            Delivery: {
+              Address: "",
+              Name: "",
+              Phone: "",
+            },
+            ID: 1,
+            JoinShopID: 1,
+            LessonList: {
+              "1": {
+                CompleteLesson: 0,
+                CurrentCoachID: -1,
+                ID: 1,
+                LessonProductID: 1,
+                LessonSeries: [
+                  null,
+                  {
+                    CompleteCoachID: -1,
+                    ID: 1,
+                    Msg: "",
+                    ReservationTime: 0,
+                    State: "NONE",
+                    TodayCancelTime: 0,
+                  },
+                ],
+                LessonShopID: 1,
+                LessonType: "ETC_LESSON",
+              },
+              LessonCount: 1,
+            },
+            Name: "김골프",
+            Phone: "010-2222-3333",
+            PurchaseList: {
+              "1": {
+                Cost: 1000,
+                DeliveryAddress: "",
+                DeliveryName: "",
+                DeliveryPhone: "",
+                ID: 1,
+                PurchaseProductID: 1,
+                PurchaseShopID: 1,
+                PurchaseTime: 0,
+                PurchaseType: "APP",
+              },
+              PurchaseCount: 0,
+            },
+            PurchaseState: 0,
+          },
+          "2": {
+            Address: "1",
+            Delivery: {
+              Address: "1",
+              Name: "1",
+              Phone: "1",
+            },
+            ID: "2",
+            JoinShopID: 1,
+            LessonList: {
+              "2": {
+                CurrentCoachID: 1,
+                ID: 2,
+                LessonComplete: 0,
+                LessonProductID: 3,
+                LessonSeries: [
+                  {
+                    CompleteCoachID: -1,
+                    ID: 0,
+                    Msg: "",
+                    ReservationTime: 0,
+                    StateType: "NONE",
+                    TodayCancelTime: 0,
+                  },
+                ],
+                LessonShopID: 1,
+                LessonType: "ETC_LESSON",
+              },
+              "3": {
+                CurrentCoachID: -1,
+                ID: 3,
+                LessonComplete: 0,
+                LessonProductID: 3,
+                LessonSeries: [
+                  {
+                    CancelTime: 0,
+                    CompleteCoachID: -1,
+                    ID: 0,
+                    Msg: "",
+                    ReservationTime: 637227108000000000,
+                    State: "RESERVATION",
+                    StateType: "NONE",
+                    TodayCancelTime: 0,
+                  },
+                ],
+                LessonShopID: 1,
+                LessonType: "ETC_LESSON",
+              },
+              LessonCount: 4,
+            },
+            Name: "1",
+            Phone: "1",
+            PurchaseList: {
+              "0": {
+                Cost: 100000,
+                ID: 0,
+                PurchaseProductID: 1,
+                PurchaseShopID: 1,
+                PurchaseTime: 637223801303898361,
+                PurchaseType: "APP",
+              },
+              PurchaseCount: 0,
+            },
+            PurchaseState: 0,
+          },
+          CustomerCount: 2,
+        };
+      };
+
+      const getCoaches = () => {
+        return [
+          {
+            Category: "골프",
+            ChatRoomIDList: {
+              ChatRoomIDList: 0,
+            },
+            CustomerList: {
+              "2": 2,
+              CustomerListCount: 0,
+            },
+            ID: 1,
+            JoinShopList: {
+              "1": {
+                MainShopEnable: 1,
+                ShopID: 1,
+                ShopManagerEnable: 0,
+              },
+              JoinShopListCount: 1,
+            },
+            Name: "김코치",
+            Phone: "010-1111-1111",
+            TempPhone: "010-2222-2222",
+          },
+        ];
+      };
+
+      function initFirebase() {
+        // Initialize Firebase
+        // firebase.initializeApp(firebaseConfig);
+
+        // const coachs = firebase
+        //   .database()
+        //   .ref("CoachData/")
+        //   .orderByKey()
+        //   .startAt("0")
+        //   .limitToFirst(100);
+
+        // coachs.once("value", function (snapshot) {
+        //   let index = 0;
+        //   snapshot.forEach((coach) => {
+        //     console.log(coach);
+        //   });
+        // });
+
+        const coachList = firebasedata();
+
+        console.log(coachs);
+      }
+    </script>
+  </body>
+</html>
